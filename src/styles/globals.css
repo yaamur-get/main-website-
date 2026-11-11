@@ -1,0 +1,674 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   YAAMUR OFFICIAL BRAND IDENTITY
+   Theme: Calm & Modern
+   ========================================= */
+
+/* Custom Arabic font */
+@font-face {
+  font-family: "DGShamael";
+  src: url("/font/DGShamael-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================
+   1. BRAND COLORS & THEME VARIABLES
+   ========================================= */
+
+@layer base {
+  :root {
+    /* Primary green palette */
+    --brand-deep-green: #08704C;
+    --brand-green-dark: #205939;
+    --brand-green-medium: #4D7A61;
+    --brand-green-sage: #799B88;
+    --brand-green-soft: #A6BBB0;
+    --brand-green-light: #D2DED7;
+
+    /* Secondary olive palette */
+    --brand-olive: #A2B366;
+    --brand-olive-medium: #B5C285;
+    --brand-olive-soft: #D3DAB6;
+    --brand-olive-light: #E1E7CE;
+    --brand-olive-pale: #F0F3E7;
+
+    /*
+      Legacy compatibility variables
+      Keep original class names working
+    */
+    --brand-warm-brown: #A2B366;
+    --brand-teal: #4D7A61;
+    --brand-light-blue: #D2DED7;
+    --brand-cream: #F0F3E7;
+
+    /* Main theme */
+    --background: 84 33% 93%;
+    --foreground: 147 47% 24%;
+
+    /* Cards */
+    --card: 0 0% 100%;
+    --card-foreground: 147 47% 24%;
+
+    /* Popovers */
+    --popover: 0 0% 100%;
+    --popover-foreground: 147 47% 24%;
+
+    /* Primary brand */
+    --primary: 161 87% 24%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary olive */
+    --secondary: 84 33% 93%;
+    --secondary-foreground: 147 47% 24%;
+
+    /* Muted */
+    --muted: 141 17% 84%;
+    --muted-foreground: 147 25% 35%;
+
+    /* Accent */
+    --accent: 73 32% 55%;
+    --accent-foreground: 147 47% 24%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 141 17% 84%;
+    --input: 141 17% 84%;
+    --ring: 161 87% 24%;
+
+    /* Component radius */
+    --radius: 0.5rem;
+  }
+
+  /* Dark mode compatibility */
+  .dark {
+    --background: 147 47% 13%;
+    --foreground: 84 33% 93%;
+
+    --card: 147 42% 18%;
+    --card-foreground: 84 33% 93%;
+
+    --popover: 147 42% 18%;
+    --popover-foreground: 84 33% 93%;
+
+    --primary: 141 17% 84%;
+    --primary-foreground: 147 47% 13%;
+
+    --secondary: 147 32% 24%;
+    --secondary-foreground: 84 33% 93%;
+
+    --muted: 147 32% 24%;
+    --muted-foreground: 141 17% 75%;
+
+    --accent: 73 32% 55%;
+    --accent-foreground: 147 47% 13%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 147 25% 30%;
+    --input: 147 25% 30%;
+    --ring: 141 17% 75%;
+  }
+}
+
+/* =========================================
+   2. GLOBAL BASE STYLES
+   ========================================= */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+
+    background-color: var(--brand-olive-pale);
+
+    font-feature-settings: "rlig" 1, "calt" 1;
+
+    font-family:
+      "DGShamael",
+      "Cairo",
+      "Tajawal",
+      system-ui,
+      sans-serif;
+  }
+
+  /* RTL support */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+
+  /* Mobile typography */
+  @media (max-width: 640px) {
+    h1 {
+      @apply text-3xl;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+  }
+}
+
+/* =========================================
+   3. COMPONENTS
+   ========================================= */
+
+@layer components {
+  .container {
+    @apply mx-auto px-4 md:px-6 lg:px-8 max-w-7xl w-full;
+  }
+
+  /* =====================================
+     Brand backgrounds
+     ===================================== */
+
+  .bg-brand-green {
+    background-color: var(--brand-deep-green);
+  }
+
+  .bg-brand-brown {
+    background-color: var(--brand-olive);
+  }
+
+  .bg-brand-teal {
+    background-color: var(--brand-green-medium);
+  }
+
+  .bg-brand-blue {
+    background-color: var(--brand-green-light);
+  }
+
+  .bg-brand-cream {
+    background-color: var(--brand-olive-pale);
+  }
+
+  /* New brand background classes */
+
+  .bg-brand-green-light {
+    background-color: var(--brand-green-light);
+  }
+
+  .bg-brand-green-soft {
+    background-color: var(--brand-green-soft);
+  }
+
+  .bg-brand-olive {
+    background-color: var(--brand-olive);
+  }
+
+  .bg-brand-olive-light {
+    background-color: var(--brand-olive-light);
+  }
+
+  .bg-brand-olive-pale {
+    background-color: var(--brand-olive-pale);
+  }
+
+  /* =====================================
+     Brand text colors
+     ===================================== */
+
+  .text-brand-green {
+    color: var(--brand-deep-green);
+  }
+
+  .text-brand-brown {
+    color: var(--brand-green-dark);
+  }
+
+  .text-brand-teal {
+    color: var(--brand-green-medium);
+  }
+
+  .text-brand-olive {
+    color: var(--brand-green-dark);
+  }
+
+  .text-brand-green-medium {
+    color: var(--brand-green-medium);
+  }
+
+  /* =====================================
+     Brand borders
+     ===================================== */
+
+  .border-brand-green {
+    border-color: var(--brand-deep-green);
+  }
+
+  .border-brand-brown {
+    border-color: var(--brand-olive);
+  }
+
+  .border-brand-teal {
+    border-color: var(--brand-green-medium);
+  }
+
+  .border-brand-olive {
+    border-color: var(--brand-olive);
+  }
+
+  .border-brand-green-light {
+    border-color: var(--brand-green-light);
+  }
+
+  /* =====================================
+     Official brand gradients
+     ===================================== */
+
+  .gradient-brand-primary {
+    background: linear-gradient(
+      135deg,
+      var(--brand-deep-green) 0%,
+      var(--brand-green-medium) 55%,
+      var(--brand-green-sage) 100%
+    );
+  }
+
+  .gradient-brand-soft {
+    background: linear-gradient(
+      135deg,
+      var(--brand-olive-pale) 0%,
+      var(--brand-green-light) 100%
+    );
+  }
+
+  .gradient-brand-olive {
+    background: linear-gradient(
+      135deg,
+      var(--brand-olive-pale) 0%,
+      var(--brand-olive-light) 50%,
+      var(--brand-olive-soft) 100%
+    );
+  }
+
+  .gradient-brand-card {
+    background: linear-gradient(
+      145deg,
+      #ffffff 0%,
+      var(--brand-olive-pale) 100%
+    );
+  }
+
+  /* =====================================
+     Islamic geometric patterns
+     ===================================== */
+
+  .pattern-dots {
+    background-image: radial-gradient(
+      circle,
+      rgba(8, 112, 76, 0.08) 1px,
+      transparent 1px
+    );
+
+    background-size: 24px 24px;
+  }
+
+  .pattern-grid {
+    background-image:
+      linear-gradient(
+        rgba(8, 112, 76, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(8, 112, 76, 0.05) 1px,
+        transparent 1px
+      );
+
+    background-size: 40px 40px;
+  }
+
+  .pattern-diagonal {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(8, 112, 76, 0.03) 20px,
+      rgba(8, 112, 76, 0.03) 40px
+    );
+  }
+
+  /* Star pattern intentionally removed */
+
+  /* =====================================
+     Gradient overlay
+     ===================================== */
+
+  .gradient-overlay {
+    position: relative;
+  }
+
+  .gradient-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      135deg,
+      rgba(8, 112, 76, 0.03) 0%,
+      rgba(162, 179, 102, 0.04) 100%
+    );
+
+    pointer-events: none;
+  }
+
+  /* =====================================
+     Floating animation
+     ===================================== */
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* =====================================
+     Pulse glow
+     ===================================== */
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(8, 112, 76, 0.3);
+    }
+
+    50% {
+      box-shadow: 0 0 40px rgba(8, 112, 76, 0.5);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  /* =====================================
+     Banner
+     ===================================== */
+
+  .baner {
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* =====================================
+     Glass effect
+     ===================================== */
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.7);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(210, 222, 215, 0.45);
+  }
+
+  /* =====================================
+     Card elevation
+     ===================================== */
+
+  .card-elevated {
+    box-shadow:
+      0 4px 6px -1px rgba(8, 112, 76, 0.1),
+      0 2px 4px -1px rgba(8, 112, 76, 0.06);
+
+    transition: all 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    box-shadow:
+      0 20px 25px -5px rgba(8, 112, 76, 0.15),
+      0 10px 10px -5px rgba(8, 112, 76, 0.1);
+
+    transform: translateY(-4px);
+  }
+
+  /* =====================================
+     Text gradient
+     ===================================== */
+
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--brand-deep-green) 0%,
+      var(--brand-green-medium) 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* =====================================
+     Smooth transitions
+     ===================================== */
+
+  .transition-smooth {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* =====================================
+     Font utility classes
+     ===================================== */
+
+  .font-arabic {
+    font-family:
+      "DGShamael",
+      "Cairo",
+      "Tajawal",
+      sans-serif;
+  }
+
+  .font-display {
+    font-family:
+      "DGShamael",
+      "Cairo",
+      sans-serif;
+
+    font-weight: 700;
+  }
+}
+
+/* =========================================
+   4. CUSTOM UTILITIES
+   ========================================= */
+
+@layer utilities {
+  /* ScrollReveal animation */
+
+  .animate-reveal {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* =====================================
+     WhatsApp animation
+     ===================================== */
+
+  @keyframes whatsapp-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+
+  /* WhatsApp button shadow */
+  .shadow-3xl {
+    box-shadow:
+      0 25px 50px -12px rgba(37, 211, 102, 0.5);
+  }
+
+  /* =====================================
+     Custom scrollbar
+     ===================================== */
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--brand-olive-pale);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--brand-deep-green);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-green-medium);
+  }
+}
+
+/* ============================================
+   YAAMUR - SITE-WIDE MOSQUE BACKGROUND
+   ============================================ */
+
+/* هيكل الموقع */
+.site-shell {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+/* خلفية المساجد الثابتة */
+.site-fixed-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: #08704C;
+}
+
+/* محتوى الموقع فوق الصور */
+.site-foreground {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.site-page-content {
+  position: relative;
+}
+
+/*
+  إزالة الخلفية المعتمة عن الحاويات
+  الرئيسية التي تخفي صور المساجد.
+*/
+.site-page-content > div[class*="min-h-screen"],
+.site-page-content > main[class*="min-h-screen"] {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/*
+  الأقسام تصبح شبه شفافة،
+  فتظهر صور المساجد وراءها.
+  الواجهة الرئيسية #home مستثناة
+  للحفاظ على السلايدر الأصلي.
+*/
+.site-page-content section:not(#home) {
+  background-color: rgba(
+    240, 243, 231, 0.82
+  ) !important;
+
+  background-image: none !important;
+}
+
+/*
+  الأقسام الداكنة، مثل الإحصائيات،
+  تبقى داكنة لضمان وضوح الكتابة البيضاء.
+*/
+.site-page-content section:not(#home)[class*="text-white"],
+.site-page-content section:not(#home)[class*="from-[#08704C]"],
+.site-page-content section:not(#home)[class*="from-[#075"] {
+  background-color: rgba(
+    8, 75, 52, 0.88
+  ) !important;
+}
+
+/*
+  الحفاظ على وضوح البطاقات:
+  لا نجعل البطاقات شفافة تلقائيًا.
+  هذا يحمي النصوص والأزرار.
+*/
+
+/* الأقسام التي تحتوي زخارف */
+.site-page-content .pattern-dots,
+.site-page-content .pattern-grid,
+.site-page-content .pattern-diagonal {
+  pointer-events: none;
+}
+
+/* دعم الأجهزة التي تفضل حركة أقل */
+@media (prefers-reduced-motion: reduce) {
+  .site-fixed-background > div {
+    transition: none !important;
+  }
+}
+
+/* تحسين أداء الخلفية على الجوال */
+@media (max-width: 768px) {
+  .site-page-content section:not(#home) {
+    background-color: rgba(
+      240, 243, 231, 0.90
+    ) !important;
+  }
+
+  .site-page-content section:not(#home)[class*="text-white"],
+  .site-page-content section:not(#home)[class*="from-[#08704C]"],
+  .site-page-content section:not(#home)[class*="from-[#075"] {
+    background-color: rgba(
+      8, 75, 52, 0.92
+    ) !important;
+  }
+}
+
+/* =========================================
+   YAAMUR - GLOBAL GREEN FOOTER
+   ========================================= */
+
+.site-foreground footer,
+.home-scene-footer footer,
+footer {
+  background: #08704C !important;
+  background-color: #08704C !important;
+  background-image: none !important;
+}
