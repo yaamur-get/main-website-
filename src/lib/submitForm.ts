@@ -1,5 +1,6 @@
 
-const WEB3FORMS_ACCESS_KEY: string = "285f9485-28ae-4ca8-acac-220e8cc0054a";
+const WEB3FORMS_ACCESS_KEY: string =
+  "285f9485-28ae-4ca8-acac-220e8cc0054a";
 
 export async function submitForm(
   formData: FormData,
@@ -8,8 +9,8 @@ export async function submitForm(
 ): Promise<void> {
   const accessKey = WEB3FORMS_ACCESS_KEY.trim();
 
-  if (!accessKey || accessKey === "285f9485-28ae-4ca8-acac-220e8cc0054a") {
-    throw new Error("يرجى إضافة مفتاح Web3Forms الصحيح.");
+  if (!accessKey) {
+    throw new Error("مفتاح Web3Forms غير موجود.");
   }
 
   if (String(formData.get("_honey") ?? "").trim()) {
