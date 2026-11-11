@@ -1,18 +1,23 @@
-const WEB3FORMS_ACCESS_KEY = "285f9485-28ae-4ca8-acac-220e8cc0054a";
+
+const WEB3FORMS_ACCESS_KEY: string = "285f9485-28ae-4ca8-acac-220e8cc0054a";
+
 export async function submitForm(
   formData: FormData,
   subject: string,
   messageField: string
 ): Promise<void> {
-  if (WEB3FORMS_ACCESS_KEY === "285f9485-28ae-4ca8-acac-220e8cc0054a") {
-    throw new Error("أضف مفتاح Web3Forms في ملف src/lib/submitForm.ts أولًا.");
+  const accessKey = WEB3FORMS_ACCESS_KEY.trim();
+
+  if (!accessKey || accessKey === "285f9485-28ae-4ca8-acac-220e8cc0054a") {
+    throw new Error("يرجى إضافة مفتاح Web3Forms الصحيح.");
   }
 
   if (String(formData.get("_honey") ?? "").trim()) {
-    throw new Error("تعذّر إرسال الطلب.");
+    throw new Error("تعذر إرسال الطلب.");
   }
 
   const fields: Record<string, string> = {};
+
   formData.forEach((value, key) => {
     if (!key.startsWith("_") && typeof value === "string") {
       fields[key] = value.trim();
@@ -20,21 +25,23 @@ export async function submitForm(
   });
 
   const message = fields[messageField] || fields.message;
-  if (!message) {
-    throw new Error("يجب تعبئة تفاصيل الطلب قبل الإرسال.");
+
+  if (!message?.trim()) {
+    throw new Error("يرجى تعبئة تفاصيل الطلب.");
   }
 
   const payload = {
     ...fields,
     name: fields.name || fields["الاسم الكامل"] || "مقدم طلب",
-    email: fields.email || "",
+    email: fields.email || undefined,
     message,
     subject,
-    from_name: "موقع جمعية يعمر",
-    access_key: WEB3FORMS_ACCESS_KEY,
+    from_name: "جمعية يعمر للعناية بالمساجد",
+    access_key: accessKey,
   };
 
   let response: Response;
+
   try {
     response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -45,11 +52,28 @@ export async function submitForm(
       body: JSON.stringify(payload),
     });
   } catch {
-    throw new Error("تعذّر الاتصال بخدمة الإرسال. حاول مرة أخرى.");
+    throw new Error(
+      "تعذر الاتصال بخدمة Web3Forms. تحقق من اتصال الإنترنت."
+    );
   }
 
-  const result: { success?: boolean; message?: string } = await response.json();
+  let result: {
+    success?: boolean;
+    message?: string;
+  };
+
+  try {
+    result = await response.json();
+  } catch {
+    throw new Error(
+      `استجابة غير متوقعة من Web3Forms. رمز الخطأ: ${response.status}`
+    );
+  }
+
   if (!response.ok || result.success !== true) {
-    throw new Error(result.message || "تعذّر إرسال الطلب، حاول مرة أخرى.");
+    throw new Error(
+      result.message ||
+      `تعذر إرسال الطلب. رمز الخطأ: ${response.status}`
+    );
   }
 }
