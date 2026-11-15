@@ -4,10 +4,8 @@
 // import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 // import { Button } from "@/components/ui/button";
 // import { ScrollReveal } from "@/components/ScrollReveal";
-// import { WhatsAppButton } from "@/components/WhatsAppButton";
-// import SiteFooter from "@/components/SiteFooter";
-// import { maintenanceSteps } from "@/data/maintenanceJourney";
-
+// // import SiteFooter from "@/components/SiteFooter";
+// 
 // export default function MaintenancePage() {
 //   const [currentStep, setCurrentStep] = useState(0);
 //   const [displayStep, setDisplayStep] = useState(0);
@@ -420,8 +418,7 @@
 //           </div>
 //         </section>
 
-//         <WhatsAppButton />
-
+// 
 //         <SiteFooter />
 //       </div>
 //     </>
@@ -433,24 +430,66 @@ import Link from "next/link";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import SiteFooter from "@/components/SiteFooter";
-import { maintenanceSteps } from "@/data/maintenanceJourney";
+import MobileJourneyRoad from "@/components/MobileJourneyRoad";
 
 const STEP_MS = 5000; // مدة عرض كل مرحلة (5 ثواني)
 
-// الكلام نفسه من ملف بيانات الصيانة
-const STEPS: { title: string; bullets: string[] }[] = maintenanceSteps.map((step) => ({
-  title: step.title,
-  bullets: (step.bullets?.length ? step.bullets : [step.summary, step.description]).filter(Boolean) as string[]
-}));
+// خلاصة رحلة الصيانة المعتمدة: خمس مراحل من استقبال الطلب حتى الإغلاق.
+// تُعرض التفاصيل المختصرة على الكمبيوتر والجوال، مع الإبقاء على القرارات الجوهرية.
+const STEPS: { title: string; bullets: string[] }[] = [
+  {
+    title: "استقبال الطلب",
+    bullets: [
+      "03 عمليات: استقبال الطلب عبر الاتصال أو واتساب أو الزيارة، وتسجيله رسميًا.",
+      "إسناد الطلب لفريق الصيانة والتحقق من دخوله ضمن نطاق خدمات الجمعية.",
+      "عند خروجه عن النطاق: إشعار مقدم الطلب بسبب الرفض وإغلاق الطلب.",
+    ],
+  },
+  {
+    title: "دراسة الطلب",
+    bullets: [
+      "11 عملية: تنسيق المعاينة الميدانية وحصر الكميات والبنود وإعداد التسعيرة الأولية.",
+      "توثيق الزيارة وإعداد التقرير الفني، وتعديل الملاحظات وإعادة رفعه عند الحاجة.",
+      "إرسال التقرير لمقدم الطلب وتوقيع الإمام، ثم رفع الموافقات لإدارة المساجد.",
+      "القرار الإشرافي: موافقة للتمويل، أو استيفاء وإعادة رفع، أو رفض مسبب وإغلاق الطلب.",
+    ],
+  },
+  {
+    title: "التمويل",
+    bullets: [
+      "14 عملية: اعتماد فتح الفرصة، وتجهيز المتطلبات، ونشرها وتسويقها عبر المتجر والإمام.",
+      "متابعة التبرعات خلال المدة المحددة؛ يُفحص التقدم في اليوم 20 للمبالغ دون 50 ألف ريال، واليوم 30 لما فوقها.",
+      "بعد إغلاق الفرصة يُحصر المبلغ ويُحدد ما يمكن تنفيذه من البنود المتاحة.",
+      "إذا لم يغطِّ المبلغ بندًا قابلًا للتنفيذ تُرفع الحالة للجنة الشرعية، وتُحفظ الفتوى في الملف.",
+    ],
+  },
+  {
+    title: "التنفيذ",
+    bullets: [
+      "12 عملية: مراجعة التسعيرات، وتوقيع العقود والتعميد قبل التسليم للمقاول.",
+      "توثيق الموقع قبل التنفيذ، وصرف الدفعة المقدمة، ثم مباشرة الأعمال والتصوير أثناءها.",
+      "التحقق الميداني إلزامي قبل اعتماد كل مستخلص؛ تُعاد المستخلصات غير المكتملة لاستيفاء الملاحظات.",
+      "تُكرر دورة المستخلصات والدفعات حتى الإنجاز، ثم يُوثّق الاستلام والتصوير البعدي.",
+    ],
+  },
+  {
+    title: "الإغلاق",
+    bullets: [
+      "08 عمليات: صرف الدفعة الأخيرة واستلام الفاتورة وإعداد التقرير الختامي.",
+      "اعتماد التقرير ورفعه في المنصة وإرساله إلى المستفيدين.",
+      "طلب تقييم رضا المستفيدين والمقاول، ثم إغلاق المشروع بوصفه مكتملًا.",
+      "ضابط مالي وشرعي: تمر جميع المبالغ عبر حسابات الجمعية؛ وتُرفع حالات الفائض أو تعذر التنفيذ للجنة الشرعية.",
+    ],
+  },
+];
 
 // ===== شكل المسار المتعرّج: 3 دوائر في كل صف، ويتعدّل تلقائيًا حسب عدد المراحل =====
 const W = 1000;
 const PER_ROW = 3;
 const ROW_COUNT = Math.ceil(STEPS.length / PER_ROW);
 const ROWS = Array.from({ length: ROW_COUNT }, (_, r) => 110 + r * 370);
-const H = ROWS[ROW_COUNT - 1] + 280;
+const H = ROWS[ROW_COUNT - 1] + 440;
 const COLS = [830, 500, 170];
 const goesLeft = (r: number) => r % 2 === 0;
 const NODES = STEPS.map((_, i) => {
@@ -490,13 +529,14 @@ export default function MaintenancePage() {
 
   // نحسب مكان كل دائرة على الطريق عشان الخط الأخضر يوقف عندها بالضبط
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches) return;
     const road = roadRef.current;
     if (!road) return;
     const total = road.getTotalLength();
     const at = NODES.map((n) => {
       let best = 0;
       let bestD = Infinity;
-      for (let l = 0; l <= total; l += 2) {
+      for (let l = 0; l <= total; l += 12) {
         const p = road.getPointAtLength(l);
         const d = (p.x - n.x) ** 2 + (p.y - n.y) ** 2;
         if (d < bestD) {
@@ -634,7 +674,7 @@ export default function MaintenancePage() {
                     >
                       {pad(i + 1)}
                       {active && (
-                        <svg className="pointer-events-none absolute -inset-[10px]" viewBox="0 0 100 100">
+                        <svg className="pointer-events-none absolute left-1/2 top-1/2 h-[92px] w-[92px] -translate-x-1/2 -translate-y-1/2 overflow-visible" viewBox="0 0 100 100">
                           <circle
                             key={`ring-${current}`}
                             cx="50"
@@ -674,44 +714,7 @@ export default function MaintenancePage() {
             </div>
 
             {/* الجوال: قائمة المراحل، والمفتوحة تنزل خطواتها تحتها */}
-            <ol className="relative space-y-4 md:hidden">
-              {STEPS.map((s, i) => {
-                const active = i === current;
-                return (
-                  <li key={i} className="flex gap-4">
-                    <button
-                      type="button"
-                      onClick={() => setCurrent(i)}
-                      aria-expanded={active}
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 text-base font-black transition-all duration-500 ${
-                        i <= current ? "border-[#08704C] bg-[#08704C] text-white" : "border-[#C9DDD1] bg-white text-[#08704C]"
-                      }`}
-                    >
-                      {pad(i + 1)}
-                    </button>
-                    <div className="flex-1 pt-3">
-                      <button
-                        type="button"
-                        onClick={() => setCurrent(i)}
-                        className={`text-right font-bold ${active ? "text-[#08704C]" : "text-gray-600"}`}
-                      >
-                        {s.title}
-                      </button>
-                      <div className={`grid transition-all duration-500 ease-out ${active ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
-                        <ul className="space-y-2 overflow-hidden pt-2">
-                          {s.bullets.map((b, j) => (
-                            <li key={j} className="flex gap-2 text-sm leading-relaxed text-gray-700">
-                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#08704C]" />
-                              <span>{b}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
+            <MobileJourneyRoad steps={STEPS} current={current} onSelect={setCurrent} />
           </div>
         </section>
 
@@ -762,7 +765,6 @@ export default function MaintenancePage() {
           </div>
         </section>
 
-        <WhatsAppButton />
 
         <SiteFooter />
       </div>

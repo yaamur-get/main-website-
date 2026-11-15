@@ -13,7 +13,7 @@
 //   const [showGovernanceSubmenu, setShowGovernanceSubmenu] = useState(false);
 
 //   return (
-//     <div className="lg:hidden">
+//     <div className="xl:hidden">
 //       <Button
 //         variant="ghost"
 //         size="icon"
@@ -29,8 +29,8 @@
 //             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
 //             onClick={() => setIsOpen(false)}
 //           />
-//           <div className="fixed top-20 left-0 right-0 bg-white shadow-2xl z-40 rounded-b-3xl border-t border-gray-200 max-h-[calc(100vh-6rem)] overflow-y-auto">
-//             <nav className="flex flex-col gap-1 p-3">
+//           <div className="fixed top-16 sm:top-20 left-0 right-0 bg-white shadow-2xl z-40 rounded-b-3xl border-t border-gray-200 max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain">
+//             <nav className="flex flex-col gap-1 p-3 sm:p-4">
 //               <Link
 //                 href="/"
 //                 onClick={() => setIsOpen(false)}
@@ -199,7 +199,7 @@ export function MobileMenu({ isScrolled }: MobileMenuProps) {
   const submenuLink = "text-gray-600 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-medium py-2 px-4 rounded-xl flex items-center gap-3";
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <Button
         variant="ghost"
         size="icon"
@@ -214,8 +214,8 @@ export function MobileMenu({ isScrolled }: MobileMenuProps) {
       {isOpen && (
         <>
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" onClick={close} />
-          <div dir="rtl" className="fixed top-20 left-0 right-0 bg-white shadow-2xl z-40 rounded-b-3xl border-t border-gray-200 max-h-[calc(100vh-6rem)] overflow-y-auto">
-            <nav className="flex flex-col gap-1 p-3" aria-label="القائمة الرئيسية للجوال">
+          <div dir="rtl" className="fixed top-16 sm:top-20 left-0 right-0 bg-white shadow-2xl z-40 rounded-b-3xl border-t border-gray-200 max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain">
+            <nav className="flex flex-col gap-1 p-3 sm:p-4" aria-label="القائمة الرئيسية للجوال">
               <Link href="/" onClick={close} className={menuLink}>الرئيسية</Link>
               <div>
                 <button onClick={() => setShowServicesSubmenu(!showServicesSubmenu)} aria-expanded={showServicesSubmenu} className={`${menuLink} w-full text-right flex items-center justify-between`}>

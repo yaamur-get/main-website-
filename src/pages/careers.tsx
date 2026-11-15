@@ -1907,6 +1907,92 @@ export default function CareersPage() {
         </section>
 
         {/* ======================================
+            3. لماذا تنضم إلى يعمر؟
+        ====================================== */}
+
+        <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto">
+            <ScrollReveal>
+              <div className="text-center max-w-2xl mx-auto mb-12">
+                <span className="text-[#08704C] text-sm font-bold">
+                  بيئة عمل تصنع الأثر
+                </span>
+
+                <h2 className="text-3xl sm:text-4xl font-black mt-3 mb-5">
+                  لماذا تنضم إلى فريق يعمر؟
+                </h2>
+
+                <p className="text-gray-500 leading-relaxed">
+                  نؤمن بأن فريق العمل هو أساس نجاحنا، ونسعى إلى توفير
+                  بيئة تساعد على التطور والإنجاز والمساهمة في خدمة بيوت الله.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {[
+                {
+                  icon: HeartHandshake,
+                  title: "رسالة ذات أثر",
+                  description:
+                    "المساهمة في خدمة بيوت الله وتحقيق أثر إيجابي في المجتمع.",
+                },
+                {
+                  icon: Wallet,
+                  title: "مزايا تنافسية",
+                  description:
+                    "رواتب مجزية وتأمين طبي ومزايا تساعد على الاستقرار الوظيفي.",
+                },
+                {
+                  icon: GraduationCap,
+                  title: "التطوير المستمر",
+                  description:
+                    "فرص للتعلم والتدريب وتنمية المهارات والخبرات المهنية.",
+                },
+                {
+                  icon: Users,
+                  title: "فريق متعاون",
+                  description:
+                    "العمل ضمن فريق يؤمن بالتعاون والاحترام وتحقيق الأهداف المشتركة.",
+                },
+                {
+                  icon: Sparkles,
+                  title: "بيئة محفزة",
+                  description:
+                    "بيئة عمل إيمانية محفزة تشجع على المبادرة والإبداع.",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "الجودة والإتقان",
+                  description:
+                    "العمل وفق قيم الجودة والإخلاص والإحسان في خدمة بيوت الله.",
+                },
+              ].map((item, index) => {
+                const Icon = item.icon;
+
+                return (
+                  <ScrollReveal key={item.title} delay={index * 70}>
+                    <div className="h-full rounded-3xl bg-white border border-gray-100 p-6 sm:p-7 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group">
+                      <div className="w-14 h-14 rounded-2xl bg-[#08704C]/10 flex items-center justify-center mb-5 group-hover:bg-[#08704C] transition-colors">
+                        <Icon className="w-7 h-7 text-[#08704C] group-hover:text-white transition-colors" />
+                      </div>
+
+                      <h3 className="text-lg font-black text-gray-900 mb-3">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-sm text-gray-500 leading-loose">
+                        {item.description}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ======================================
             2. الوظائف المتاحة
         ====================================== */}
 
@@ -2066,96 +2152,10 @@ export default function CareersPage() {
         </section>
 
         {/* ======================================
-            3. لماذا تنضم إلى يعمر؟
-        ====================================== */}
-
-        <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto">
-            <ScrollReveal>
-              <div className="text-center max-w-2xl mx-auto mb-12">
-                <span className="text-[#08704C] text-sm font-bold">
-                  بيئة عمل تصنع الأثر
-                </span>
-
-                <h2 className="text-3xl sm:text-4xl font-black mt-3 mb-5">
-                  لماذا تنضم إلى فريق يعمر؟
-                </h2>
-
-                <p className="text-gray-500 leading-relaxed">
-                  نؤمن بأن فريق العمل هو أساس نجاحنا، ونسعى إلى توفير
-                  بيئة تساعد على التطور والإنجاز والمساهمة في خدمة بيوت الله.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {[
-                {
-                  icon: HeartHandshake,
-                  title: "رسالة ذات أثر",
-                  description:
-                    "المساهمة في خدمة بيوت الله وتحقيق أثر إيجابي في المجتمع.",
-                },
-                {
-                  icon: Wallet,
-                  title: "مزايا تنافسية",
-                  description:
-                    "رواتب مجزية وتأمين طبي ومزايا تساعد على الاستقرار الوظيفي.",
-                },
-                {
-                  icon: GraduationCap,
-                  title: "التطوير المستمر",
-                  description:
-                    "فرص للتعلم والتدريب وتنمية المهارات والخبرات المهنية.",
-                },
-                {
-                  icon: Users,
-                  title: "فريق متعاون",
-                  description:
-                    "العمل ضمن فريق يؤمن بالتعاون والاحترام وتحقيق الأهداف المشتركة.",
-                },
-                {
-                  icon: Sparkles,
-                  title: "بيئة محفزة",
-                  description:
-                    "بيئة عمل إيمانية محفزة تشجع على المبادرة والإبداع.",
-                },
-                {
-                  icon: ShieldCheck,
-                  title: "الجودة والإتقان",
-                  description:
-                    "العمل وفق قيم الجودة والإخلاص والإحسان في خدمة بيوت الله.",
-                },
-              ].map((item, index) => {
-                const Icon = item.icon;
-
-                return (
-                  <ScrollReveal key={item.title} delay={index * 70}>
-                    <div className="h-full rounded-3xl bg-white border border-gray-100 p-6 sm:p-7 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group">
-                      <div className="w-14 h-14 rounded-2xl bg-[#08704C]/10 flex items-center justify-center mb-5 group-hover:bg-[#08704C] transition-colors">
-                        <Icon className="w-7 h-7 text-[#08704C] group-hover:text-white transition-colors" />
-                      </div>
-
-                      <h3 className="text-lg font-black text-gray-900 mb-3">
-                        {item.title}
-                      </h3>
-
-                      <p className="text-sm text-gray-500 leading-loose">
-                        {item.description}
-                      </p>
-                    </div>
-                  </ScrollReveal>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ======================================
             4. إرسال السيرة الذاتية والتواصل
         ====================================== */}
 
-        <section className="relative px-4 sm:px-6 lg:px-8 pb-20">
+        {/* <section className="relative px-4 sm:px-6 lg:px-8 pb-20">
           <div className="container mx-auto">
             <div className="relative overflow-hidden rounded-[2.5rem] bg-[#08704C] text-white">
               <div className="absolute -top-32 -right-20 w-80 h-80 rounded-full border-[50px] border-white/5" />
@@ -2232,7 +2232,7 @@ export default function CareersPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* ======================================
             5. التذييل

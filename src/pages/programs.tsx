@@ -381,6 +381,48 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "جامع الخلفاء الراشدين ",
+    description: "أعمال العزل",
+    location: "حي بدر - الدمام ",
+    date: "2026-10-11",
+    image: "/iamge/moasq/alkhalfaa.jpeg",
+    beneficiaries: 870,
+    status: "completed",
+    details: [
+      "الطاقة الاستيعابية: 870 مصلي",
+      "أعمال العزل للجامع ",
+    ],
+  },
+  // {
+  //   id: 2,
+  //   title: "مسجد ابو طلحه الانصاري",
+  //   description: "أعمال تأهيل دورات المياه ",
+  //   location: "الظهران - حي بدر ",
+  //   date: "2026-10-06",
+  //   image: "/iamge/moasq/alahsah.jpeg",
+  //   beneficiaries: 358,
+  //   status: "completed",
+  //   details: [
+  //     "الطاقة الاستيعابية: 358 مصلي",
+  //     "أعمال تأهيل دورات المياه ",
+  //   ],
+  // },
+  {
+    id: 3,
+    title: "مسجد ابو طلحه الانصاري",
+    description: "أعمال تأهيل دورات المياه ",
+    location: "الظهران - حي بدر",
+    date: "2026-11-04",
+    image: "/iamge/moasq/bathroom.jpeg",
+    beneficiaries: 100,
+    status: "completed",
+    details: [
+      "الطاقة الاستيعابية: 100 مصلي",
+      "صيانة السقف",
+    ],
+  },
+  {
+    id: 4,
     title: "مسجد عائشة بنت الصديق",
     description: "صيانة نظام التبريد",
     location: "أم الساهك – الحزم",
@@ -394,7 +436,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 2,
+    id: 5,
     title: "مسجد ماجد الحارثي",
     description: "ترميم المسجد بسبب الحريق",
     location: "الدمام – النورس",
@@ -410,7 +452,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     title: "جامع رفيع الجابري",
     description: "صيانة إحدى وحدات التكييف المركزي",
     location: "الدمام – طيبة",

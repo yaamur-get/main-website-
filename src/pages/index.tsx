@@ -5224,7 +5224,7 @@ import Image from "next/image";
 import SiteFooter from "@/components/SiteFooter";
 
 // صورة الواجهة
-const HERO_IMAGE = "/picture24.jpg";
+const HERO_IMAGE = "/Picture24.jpg";
 const DONATION_URL = "https://store.yaamur.org.sa/";
 
 // ضع الصور الجديدة في public/hero/ بالأسماء المحددة.

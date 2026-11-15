@@ -6,8 +6,7 @@
 // import { ArrowLeft, ArrowRight, Sparkles, Star } from "lucide-react";
 // import { ScrollReveal } from "@/components/ScrollReveal";
 // import { Button } from "@/components/ui/button";
-// import { WhatsAppButton } from "@/components/WhatsAppButton";
-// import SiteFooter from "@/components/SiteFooter";
+// // import SiteFooter from "@/components/SiteFooter";
 // import { operationSteps } from "@/data/operationJourney";
 
 // export default function OperationPage() {
@@ -423,8 +422,7 @@
 
         
 
-//         <WhatsAppButton />
-
+// 
 //         <SiteFooter />
 //       </div>
 //     </>
@@ -435,8 +433,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import SiteFooter from "@/components/SiteFooter";
+import MobileJourneyRoad from "@/components/MobileJourneyRoad";
 import { operationSteps } from "@/data/operationJourney";
 
 const STEP_MS = 5000; // مدة عرض كل مرحلة (5 ثواني)
@@ -492,13 +490,14 @@ export default function OperationPage() {
 
   // نحسب مكان كل دائرة على الطريق عشان الخط الأخضر يوقف عندها بالضبط
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches) return;
     const road = roadRef.current;
     if (!road) return;
     const total = road.getTotalLength();
     const at = NODES.map((n) => {
       let best = 0;
       let bestD = Infinity;
-      for (let l = 0; l <= total; l += 2) {
+      for (let l = 0; l <= total; l += 12) {
         const p = road.getPointAtLength(l);
         const d = (p.x - n.x) ** 2 + (p.y - n.y) ** 2;
         if (d < bestD) {
@@ -637,7 +636,7 @@ export default function OperationPage() {
                     >
                       {pad(i + 1)}
                       {active && (
-                        <svg className="pointer-events-none absolute -inset-[10px]" viewBox="0 0 100 100">
+                        <svg className="pointer-events-none absolute left-1/2 top-1/2 h-[92px] w-[92px] -translate-x-1/2 -translate-y-1/2 overflow-visible" viewBox="0 0 100 100">
                           <circle
                             key={`ring-${current}`}
                             cx="50"
@@ -677,44 +676,7 @@ export default function OperationPage() {
             </div>
 
             {/* الجوال: قائمة المراحل، والمفتوحة تنزل خطواتها تحتها */}
-            <ol className="relative space-y-4 md:hidden">
-              {STEPS.map((s, i) => {
-                const active = i === current;
-                return (
-                  <li key={i} className="flex gap-4">
-                    <button
-                      type="button"
-                      onClick={() => setCurrent(i)}
-                      aria-expanded={active}
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 text-base font-black transition-all duration-500 ${
-                        i <= current ? "border-[#08704C] bg-[#08704C] text-white" : "border-[#C9DDD1] bg-white text-[#08704C]"
-                      }`}
-                    >
-                      {pad(i + 1)}
-                    </button>
-                    <div className="flex-1 pt-3">
-                      <button
-                        type="button"
-                        onClick={() => setCurrent(i)}
-                        className={`text-right font-bold ${active ? "text-[#08704C]" : "text-gray-600"}`}
-                      >
-                        {s.title}
-                      </button>
-                      <div className={`grid transition-all duration-500 ease-out ${active ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
-                        <ul className="space-y-2 overflow-hidden pt-2">
-                          {s.bullets.map((b, j) => (
-                            <li key={j} className="flex gap-2 text-sm leading-relaxed text-gray-700">
-                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#08704C]" />
-                              <span>{b}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
+            <MobileJourneyRoad steps={STEPS} current={current} onSelect={setCurrent} />
           </div>
         </section>
 
@@ -791,7 +753,6 @@ export default function OperationPage() {
           </div>
         </section>
 
-        <WhatsAppButton />
 
         <SiteFooter />
       </div>

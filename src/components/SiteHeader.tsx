@@ -80,8 +80,8 @@
 //       }`}
 //       dir="rtl"
 //     >
-//       <div className="container mx-auto">
-//         <div className="flex items-center justify-between h-20">
+//       <div className="container mx-auto px-3 sm:px-5 xl:px-4">
+//         <div className="flex min-w-0 items-center justify-between gap-2 h-16 sm:h-20">
 //           {/*
 //           <div className="flex items-center gap-3">
 //             <div className="relative h-full w-40 shrink-0">
@@ -206,16 +206,16 @@
 //           </nav>
 
 //           {/* Mobile store button (left on small screens) */}
-//           <a href="https://store.yaamur.org.sa/" className="lg:hidden order-last">
+//           <a href="https://store.yaamur.org.sa/" className="xl:hidden order-last shrink-0">
 //             <Button
-//               className={`mr-2 h-12 w-40 p-0 rounded-md flex flex-col items-center justify-center shadow-lg overflow-hidden ${
+//               className={`mr-1 h-10 w-24 sm:h-11 sm:w-32 p-0 rounded-md flex flex-col items-center justify-center shadow-lg overflow-hidden ${
 //                 isScrolled
 //                   ? "bg-gradient-to-r from-[#08704C] via-[#4D7A61] to-[#08704C] text-white"
 //                   : "bg-gradient-to-r from-[#08704C] via-[#4D7A61] to-[#08704C] text-white"
 //               }`}
 //             >
               
-//             <span className="text-xl leading-tight text-cenىter">تبرع </span>
+//             <span className="text-sm sm:text-base leading-tight text-center">تبرع </span>
 //             </Button>
 //           </a>
 
@@ -223,7 +223,7 @@
 
 //           <a href="https://store.yaamur.org.sa/">
 //             <Button
-//               className="hidden sm:flex bg-gradient-to-r from-[#08704C] via-[#4D7A61] to-[#08704C] hover:shadow-2xl text-white shadow-lg transition-all duration-300 hover:scale-105 bg-[length:200%_100%] hover:bg-right"
+//               className="hidden xl:flex bg-gradient-to-r from-[#08704C] via-[#4D7A61] to-[#08704C] hover:shadow-2xl text-white shadow-lg transition-all duration-300 hover:scale-105 bg-[length:200%_100%] hover:bg-right"
 //               size="lg"
 //             >
 //               <ExternalLink className="w-4 h-4 ml-2" />
@@ -320,8 +320,8 @@ export function SiteHeader() {
       }`}
       dir="rtl"
     >
-      <div className="container mx-auto">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-3 sm:px-5 xl:px-4">
+        <div className="flex min-w-0 items-center justify-between gap-2 h-16 sm:h-20">
           {/*
           <div className="flex items-center gap-3">
             <div className="relative h-full w-40 shrink-0">
@@ -340,7 +340,7 @@ export function SiteHeader() {
           */} 
           
 
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm xl:text-base whitespace-nowrap">
+          <nav className="hidden xl:flex min-w-0 items-center gap-3 2xl:gap-6 text-sm 2xl:text-base whitespace-nowrap">
             <Link
               href="/"
               className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold  group"
@@ -450,16 +450,16 @@ export function SiteHeader() {
           </nav>
 
           {/* Mobile store button (left on small screens) */}
-          <a href="https://store.yaamur.org.sa/" className="lg:hidden order-last">
+          <a href="https://store.yaamur.org.sa/" className="xl:hidden order-last shrink-0">
             <Button
-              className={`mr-2 h-12 w-40 p-0 rounded-md flex flex-col items-center justify-center shadow-lg overflow-hidden ${
+              className={`mr-1 h-10 w-24 sm:h-11 sm:w-32 p-0 rounded-md flex flex-col items-center justify-center shadow-lg overflow-hidden ${
                 isScrolled
                   ? "bg-gradient-to-r from-[#08704C] via-[#4D7A61] to-[#08704C] text-white"
                   : "bg-gradient-to-r from-[#08704C] via-[#4D7A61] to-[#08704C] text-white"
               }`}
             >
               
-            <span className="text-xl leading-tight text-cenىter">تبرع </span>
+            <span className="text-sm sm:text-base leading-tight text-center">تبرع </span>
             </Button>
           </a>
 
@@ -467,7 +467,7 @@ export function SiteHeader() {
 
           <a href="https://store.yaamur.org.sa/">
             <Button
-              className="hidden sm:flex bg-gradient-to-r from-[#08704C] via-[#4D7A61] to-[#08704C] hover:shadow-2xl text-white shadow-lg transition-all duration-300 hover:scale-105 bg-[length:200%_100%] hover:bg-right"
+              className="hidden xl:flex bg-gradient-to-r from-[#08704C] via-[#4D7A61] to-[#08704C] hover:shadow-2xl text-white shadow-lg transition-all duration-300 hover:scale-105 bg-[length:200%_100%] hover:bg-right"
               size="lg"
             >
               <ExternalLink className="w-4 h-4 ml-2" />

@@ -387,7 +387,7 @@ export function PartnersCarousel() {
           <div className="space-y-10">
             <PartnerSection
               title="شريك رسمي"
-              subtitle="الجهات الحكومية"
+              subtitle=""
               ids={partnerGroups.official}
               icon={Landmark}
               onPreview={setSelectedPartner}
@@ -395,7 +395,7 @@ export function PartnersCarousel() {
 
             <PartnerSection
               title="شريك تنفيذ"
-              subtitle="الشركات والجمعيات ذات الشراكات التنفيذية"
+              subtitle=""
               ids={partnerGroups.execution}
               icon={Handshake}
               onPreview={setSelectedPartner}
@@ -406,7 +406,7 @@ export function PartnersCarousel() {
           <div>
             <PartnerSection
               title="شريك داعم"
-              subtitle="المؤسسات المانحة والداعمة ماليًا"
+              subtitle=""
               ids={partnerGroups.support}
               icon={HeartHandshake}
               onPreview={setSelectedPartner}

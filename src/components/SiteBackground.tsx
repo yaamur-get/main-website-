@@ -2,10 +2,10 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const BACKGROUND_IMAGE = "/picture24.jpg";
+const BACKGROUND_IMAGE = "/Picture24.jpg";
 
 const backgroundSlides = [
-  "/picture24.jpg",
+  "/Picture24.jpg",
   "/hero/slide-2.jpg",
   "/hero/slide-3.jpg",
   "/hero/slide-4.jpg",
@@ -15,6 +15,7 @@ export default function SiteBackground() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [failedImages, setFailedImages] = useState<number[]>([]);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia(
@@ -48,7 +49,9 @@ export default function SiteBackground() {
       className="site-fixed-background"
       aria-hidden="true"
     >
-      {backgroundSlides.map((src, index) => (
+      {backgroundSlides.map((src, index) => {
+        if (isMobile && index !== 0) return null;
+        return (
         <div
           key={src}
           className={`absolute inset-0 transition-opacity duration-1000 ${
@@ -77,7 +80,8 @@ export default function SiteBackground() {
             }
           />
         </div>
-      ))}
+        );
+      })}
 
       {/* تدرج أخضر فوق صور المساجد */}
       <div className="absolute inset-0 bg-gradient-to-l from-[#08704C]/30 via-[#4D7A61]/15 to-[#D2DED7]/10" />

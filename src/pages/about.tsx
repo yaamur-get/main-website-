@@ -606,7 +606,7 @@ const executive = {
 const employees: Employee[] = [
   {
     id: 2,
-    name: " حسن الخياط ",
+    name: " حسن عبدالخالق الخياط ",
     position: "مدير مكتب الرئيس التنفيذي",
     department: "",
     image: "",
@@ -620,7 +620,7 @@ const employees: Employee[] = [
   },
   {
     id: 15,
-    name: "عبدالعزيز السرحاني",
+    name: "عبدالعزيز عوض السرحاني",
     position: "مدير ادارة الصيانة ",
     department: "",
     image: "",
@@ -690,7 +690,7 @@ const employees: Employee[] = [
   },
   {
     id: 13,
-    name: " احمد الاحمدي ",
+    name: " أحمد محمد لحمدي",
     position: "قسم التسويق ",
     department: "",
     image: "",
@@ -711,7 +711,7 @@ const employees: Employee[] = [
   },
   {
     id: 16,
-    name: " عبدالعزيز القحطاني    ",
+    name: " عبدالعزيز سالم القحطاني    ",
     position: "قسم التشغيل",
     department: "",
     image: "",
@@ -1116,7 +1116,7 @@ export default function AboutPage() {
           </h2>
 
           <p className="text-lg text-gray-600 leading-loose mb-5">
-            جمعية خيرية تأسست عام 2023م بالمنطقة الشرقية،
+            جمعية أهلية تأسست عام 2023م بالمنطقة الشرقية،
             بهدف خدمة بيوت الله من خلال ثلاثة محاور رئيسية:
             البناء والصيانة والتشغيل.
           </p>
@@ -1241,10 +1241,7 @@ export default function AboutPage() {
           <div className="container mx-auto relative z-10">
             <ScrollReveal>
               <div className="text-center max-w-2xl mx-auto mb-14">
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#08704C]/10 text-[#08704C] rounded-full text-sm font-bold mb-5">
-                  <Users className="w-4 h-4" />
-                  قيادتنا
-                </span>
+                
 
                 <h2 className="text-3xl sm:text-4xl font-black mb-5">
                   مجلس الإدارة
