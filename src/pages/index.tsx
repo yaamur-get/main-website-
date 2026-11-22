@@ -7906,10 +7906,10 @@ export default function HomePage() {
                 <h2 className="text-3xl sm:text-4xl font-black text-[#103f31]">نعمل بمعايير واضحة ومعتمدة</h2>
               </div>
             </ScrollReveal>
- 
+
             <div className="grid sm:grid-cols-3 gap-5">
               {[
-                { icon: ShieldCheck, value: "5161", title: "جمعية أهلية مرخّصة", note: "رقم ترخيص الجمعية", link: "" },
+               { icon: ShieldCheck, value: "5161", title: "جمعية أهلية مرخّصة", note: "رقم ترخيص الجمعية", link: "/data/registration-certificate.pdf" },
                 { icon: ClipboardCheck, value: "ISO 9001:2015", title: "شهادة إدارة الجودة", note: "معتمدون في نظام إدارة الجودة", link: "/achif/iso.png" },
                 { icon: TrendingUp, value: "98.80%", title: "نسبة الحوكمة 2025", note: "وفي عام 2024: 99.40%", link: "/achif/governance-2024-2025.jpeg" }
               ].map((item, i) => {
