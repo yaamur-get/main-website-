@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-type JourneyStep = { title: string; bullets: string[] };
+type JourneyStep = { title: string; bullets: string[]; image?: string };
 
 type Props = {
   steps: JourneyStep[];
@@ -35,7 +36,7 @@ export default function MobileJourneyRoad({ steps, current, onSelect }: Props) {
       (sum, bullet) => sum + 24 + 18 * Math.max(1, Math.ceil(bullet.length / 27)),
       0
     );
-    return Math.max(280, 125 + textHeight);
+    return Math.max(370, 230 + textHeight + (activeStep.image ? 100 : 0));
   }, [activeStep]);
 
   const nodes = useMemo(
@@ -193,6 +194,11 @@ export default function MobileJourneyRoad({ steps, current, onSelect }: Props) {
             <p className="mb-2 text-[13px] font-extrabold text-[#08704C]">
               المرحلة {String(current + 1).padStart(2, "0")}: {activeStep.title}
             </p>
+            {activeStep.image && (
+              <div className="mb-3 flex justify-center rounded-xl bg-[#F0F3E7] p-2">
+                <Image src={activeStep.image} alt={`صورة توضيحية لمرحلة ${activeStep.title}`} width={148} height={96} className="h-[88px] w-auto max-w-full object-contain" />
+              </div>
+            )}
             <ul className="space-y-1.5">
               {activeStep.bullets.map((bullet, j) => (
                 <li key={j} className="flex items-start gap-2 text-[12px] leading-6 text-gray-700">

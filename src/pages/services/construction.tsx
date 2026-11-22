@@ -487,6 +487,8 @@
 // // import SiteFooter from "@/components/SiteFooter";
 
 // const STEP_MS = 5000; // مدة عرض كل مرحلة (5 ثواني)
+// صور المراحل: public/iamge/benaa/01.png ... 10.png
+const stepImage = (i: number) => `/iamge/benaa/${String(i + 1).padStart(2, "0")}.png`;
 
 // const STEPS: { title: string; bullets: string[] }[] = [
 //   {
@@ -1318,6 +1320,7 @@
 // }
 import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -1619,14 +1622,19 @@ export default function ConstructionPage() {
                         active ? "visible translate-y-0 opacity-100" : "invisible -translate-y-3 opacity-0 pointer-events-none"
                       }`}
                     >
-                      <ul className="space-y-2 rounded-2xl border border-[#08704C]/15 bg-white/95 p-4 text-right shadow-lg backdrop-blur">
+                      <div className="rounded-2xl border border-[#08704C]/15 bg-white/95 p-4 text-right shadow-lg backdrop-blur">
+                        <div className="mb-3 flex justify-center rounded-xl bg-[#F0F3E7] p-2">
+                          <Image src={stepImage(i)} alt={`صورة توضيحية لمرحلة ${STEPS[i].title}`} width={160} height={108} className="h-[100px] w-auto max-w-full object-contain" />
+                        </div>
+                        <ul className="space-y-2">
                         {STEPS[i].bullets.map((b, j) => (
                           <li key={j} className="flex gap-2 text-sm leading-relaxed text-gray-700">
                             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#08704C]" />
                             <span>{b}</span>
                           </li>
                         ))}
-                      </ul>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 );
@@ -1634,7 +1642,7 @@ export default function ConstructionPage() {
             </div>
 
             {/* الجوال: قائمة المراحل، والمفتوحة تنزل خطواتها تحتها */}
-            <MobileJourneyRoad steps={STEPS} current={current} onSelect={setCurrent} />
+            <MobileJourneyRoad steps={STEPS.map((step, i) => ({ ...step, image: stepImage(i) }))} current={current} onSelect={setCurrent} />
           </div>
         </section>
 
