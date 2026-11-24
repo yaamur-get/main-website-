@@ -1701,7 +1701,7 @@ const boardMembers: BoardMember[] = [
 
 const executive = {
   name: "عبدالله جاسم البنعلي",
-  position: "المدير التنفيذي",
+  position: "الرئيس التنفيذي",
   image: "/عبدالله البنعلي.jpg",
 };
 
@@ -1820,7 +1820,7 @@ const employees: Employee[] = [
     name: " عبدالعزيز سالم القحطاني    ",
     position: "قسم التشغيل",
     department: "",
-    image: "",
+    image: "/عبدالعزيز-القحطاني.jpeg",
   },
 ];
 
