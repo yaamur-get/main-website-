@@ -1110,15 +1110,7 @@ export default function VolunteerPage() {
 
 
 
-              <p className="rounded-xl border border-[#08704C]/10 bg-[#F1F7F2] p-4 text-sm leading-7 text-[#315844]">
-
-                تُستخدم بياناتك للتواصل بشأن طلب التطوع، وتُرسل عبر خدمة
-
-                Web3Forms الخارجية إلى البريد المعتمد لدى الجمعية. لا ترسل
-
-                معلومات حساسة في الملاحظات.
-
-              </p>
+              
 
 
 

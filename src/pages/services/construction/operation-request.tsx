@@ -300,10 +300,7 @@ export default function OperationRequestPage() {
                   <ArrowLeft className="h-5 w-5" />
                 </button>
 
-                <p className="text-center text-xs leading-6 text-gray-500">
-                  يُرسل الطلب عبر خدمة Web3Forms،
-                  وتخضع الموافقة عليه لمراجعة الجمعية.
-                </p>
+               
               </form>
             )}
           </div>

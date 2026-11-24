@@ -2195,10 +2195,7 @@ export default function NewsPage() {
           <div className="container relative z-10 mx-auto">
             <ScrollReveal>
               <div className="mx-auto max-w-4xl text-center">
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#08704C]/10 bg-white px-5 py-2.5 text-sm font-bold text-[#08704C] shadow-sm">
-                  <Newspaper className="h-4 w-4" />
-                  آخر مستجدات يعمر
-                </div>
+                
 
                 <h1 className="mb-6 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
                   أخبار{" "}
@@ -2220,9 +2217,9 @@ export default function NewsPage() {
 
         <NewsSection
           id="all-news"
-          eyebrow="آخر المستجدات"
+          eyebrow=""
           title="أبرز أخبار يعمر"
-          description="تابع آخر أخبار الجمعية ومبادراتها وأنشطتها."
+          description="تابع  أخبار الجمعية ومبادراتها وأنشطتها."
           news={featuredNews}
         />
 
@@ -2258,40 +2255,6 @@ export default function NewsPage() {
             تابع أخبار الجمعية
         ====================================== */}
 
-        <section className="relative mx-4 mb-16 mt-12 overflow-hidden rounded-[2rem] bg-[#08704C] text-white sm:mx-6 lg:mx-8">
-          <div className="absolute inset-0 bg-gradient-to-l from-[#08704C] via-[#00946E] to-[#08704C]" />
-
-          <div className="absolute -left-20 -top-32 h-72 w-72 rounded-full border-[40px] border-white/5" />
-
-          <div className="absolute -bottom-40 -right-20 h-96 w-96 rounded-full border-[60px] border-white/5" />
-
-          <div className="container relative z-10 mx-auto px-6 py-14 text-center sm:py-16">
-            <ScrollReveal>
-              <span className="mb-6 inline-block rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm">
-                كن قريبًا من أخبارنا
-              </span>
-
-              <h2 className="mb-5 text-3xl font-black sm:text-4xl">
-                تابع رحلة يعمر في خدمة بيوت الله
-              </h2>
-
-              <p className="mx-auto mb-8 max-w-2xl text-lg leading-8 text-white/80">
-                نشارككم أولًا بأول أخبار الجمعية ومشاريعها وكل ما
-                نقدمه في خدمة بيوت الله والمجتمع.
-              </p>
-
-              <a
-                href="https://x.com/Yaamurorg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="rounded-xl bg-white px-7 font-bold text-[#08704C] hover:bg-[#F0F3E7]">
-                  تابعنا على X
-                </Button>
-              </a>
-            </ScrollReveal>
-          </div>
-        </section>
 
         <WhatsAppButton />
         <SiteFooter />

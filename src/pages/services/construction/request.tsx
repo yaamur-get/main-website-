@@ -836,10 +836,7 @@ export default function ConstructionRequestPage() {
                   <ArrowLeft className="h-5 w-5" />
                 </button>
 
-                <p className="text-center text-xs leading-6 text-gray-500">
-                  يُرسل الطلب عبر خدمة Web3Forms الخارجية إلى بريد الجمعية،
-                  ولا يعني تقديم الطلب الموافقة على تنفيذه.
-                </p>
+                
               </form>
             )}
           </div>

@@ -964,10 +964,7 @@ export default function MaintenanceRequestPage() {
                   <ArrowLeft className="h-5 w-5" />
                 </button>
 
-                <p className="text-center text-xs leading-6 text-gray-500">
-                  يُرسل الطلب عبر خدمة Web3Forms الخارجية،
-                  وتخضع الموافقة على الطلب لمراجعة الجمعية.
-                </p>
+               
 
               </form>
             )}

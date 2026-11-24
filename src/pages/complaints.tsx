@@ -306,7 +306,7 @@ export default function ComplaintsPage() {
           <h1 className="mb-3 text-3xl font-extrabold text-[#205939] sm:text-4xl">
             الشكاوى والاقتراحات
           </h1>
-          <p className="mx-auto max-w-xl leading-8 text-gray-600">
+          <p className="mx-auto max-w-xl leading-8 text-white text-2xl">
             نسعد باستقبال آرائكم وملاحظاتكم التي تسهم في تحسين خدمات جمعية يعمر للعناية بالمساجد.
           </p>
         </div>
@@ -408,10 +408,7 @@ export default function ComplaintsPage() {
             />
           </div>
 
-          <p className="rounded-xl bg-[#F1F7F2] p-4 text-sm leading-7 text-[#315844]">
-            ستُرسل رسالتك إلى إدارة الجمعية عبر خدمة Web3Forms، وسيتم التواصل معك عند الحاجة.
-            بإرسال الطلب، توافق على استخدام بياناتك لهذا الغرض.
-          </p>
+          
 
           <button
             type="submit"
